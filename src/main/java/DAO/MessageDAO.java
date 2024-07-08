@@ -12,6 +12,11 @@ import Util.ConnectionUtil;
 import Model.Message;
 
 public class MessageDAO {
+    /**
+    * Searches database for message with matching message_id
+    * @param message_id id of the message to search for
+    * @return returns message that matches message_id, if one is not found returns null instead
+    */
     public Message getMessage(int message_id) {
         Connection connection = ConnectionUtil.getConnection();
         try {
@@ -35,6 +40,11 @@ public class MessageDAO {
         return null;
     }
 
+    /**
+    * Retrieves all messages posted by account_id
+    * @param account_id id of the account messages are posted by
+    * @return returns list of messages sent by account
+    */
     public List<Message> getAllMessagesForUser(int account_id) {
         List<Message> messages = new ArrayList<Message>();
         Connection connection = ConnectionUtil.getConnection();
@@ -59,6 +69,10 @@ public class MessageDAO {
         return messages;
     }
 
+    /**
+    * Retrieves all messages from database
+    * @return returns list of messages sent by account
+    */
     public List<Message> getAllMessages() {
         List<Message> messages = new ArrayList<Message>();
         Connection connection = ConnectionUtil.getConnection();
@@ -81,6 +95,11 @@ public class MessageDAO {
         return messages;
     }
 
+    /**
+    * Adds message to dsatabase if message is not blank, no longer than 255 characters, and posted_by refers to a real user
+    * @param message the message to be added to the databse
+    * @return returns message with new message_id if successfully added to databse, returns null otherwise
+    */
     public Message insertMessage(Message message) {
         Connection connection = ConnectionUtil.getConnection();
         try {
@@ -103,6 +122,11 @@ public class MessageDAO {
         return null;
     }
 
+    /**
+    * Removes message from database with matching message_id
+    * @param message_id id of the message to search for
+    * @return returns message that matches message_id, if one is not found returns null instead
+    */
     public Message deleteMessage(int message_id) {
         Connection connection = ConnectionUtil.getConnection();
         try {
@@ -123,6 +147,11 @@ public class MessageDAO {
         return null;
     }
 
+    /**
+    * Updates message with matching message_id
+    * @param message_id id of the message to search for
+    * @return returns message that matches message_id with updated message_text, if one is not found returns null instead
+    */
     public Message updateMessage(int message_id, String message_text) {
         Connection connection = ConnectionUtil.getConnection();
         try {

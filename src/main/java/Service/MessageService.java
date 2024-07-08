@@ -59,7 +59,7 @@ public class MessageService {
     }
 
     /**
-    * Searches database for message with matching message_id
+    * Updates message with matching message_id
     * @param message_id id of the message to search for
     * @return returns message that matches message_id with updated message_text, if one is not found returns null instead
     */
